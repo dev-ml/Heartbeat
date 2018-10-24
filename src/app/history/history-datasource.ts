@@ -4,7 +4,6 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge, Subscription } from 'rxjs';
 import { BloodPressure } from '../blood-pressure';
-import { Injectable } from '@angular/core';
 
 /**
  * Data source for the History view. This class should
@@ -13,7 +12,7 @@ import { Injectable } from '@angular/core';
  */
 export class HistoryDataSource extends DataSource<BloodPressure> {
   private bloodPressureSubscription: Subscription;
-  private data: BloodPressure[];
+  data: BloodPressure[];
 
   constructor(private paginator: MatPaginator, private sort: MatSort, private bloodPressureService: BloodPressureService) {
     super();
