@@ -5,10 +5,10 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'hb-nav',
-  templateUrl: './hb-nav.component.html',
-  styleUrls: ['./hb-nav.component.scss'],
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss'],
 })
-export class HbNavComponent {
+export class NavComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

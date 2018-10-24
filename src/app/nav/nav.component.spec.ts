@@ -9,15 +9,15 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 
-import { HbNavComponent } from './hb-nav.component';
+import { NavComponent } from './nav.component';
 
-describe('HbNavComponent', () => {
-  let component: HbNavComponent;
-  let fixture: ComponentFixture<HbNavComponent>;
+describe('NavComponent', () => {
+  let component: NavComponent;
+  let fixture: ComponentFixture<NavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HbNavComponent],
+      declarations: [NavComponent],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -31,7 +31,7 @@ describe('HbNavComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HbNavComponent);
+    fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

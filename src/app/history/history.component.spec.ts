@@ -2,15 +2,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule, MatSortModule, MatTableModule } from '@angular/material';
 
-import { HbTableComponent } from './hb-table.component';
+import { HistoryComponent } from './history.component';
 
-describe('HbTableComponent', () => {
-  let component: HbTableComponent;
-  let fixture: ComponentFixture<HbTableComponent>;
+describe('HistoryComponent', () => {
+  let component: HistoryComponent;
+  let fixture: ComponentFixture<HistoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HbTableComponent ],
+      declarations: [ HistoryComponent ],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,
@@ -21,7 +21,7 @@ describe('HbTableComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HbTableComponent);
+    fixture = TestBed.createComponent(HistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

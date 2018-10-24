@@ -4,13 +4,13 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface HbTableItem {
+export interface HistoryItem {
   name: string;
   id: number;
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: HbTableItem[] = [
+const EXAMPLE_DATA: HistoryItem[] = [
   {id: 1, name: 'Hydrogen'},
   {id: 2, name: 'Helium'},
   {id: 3, name: 'Lithium'},
@@ -34,12 +34,12 @@ const EXAMPLE_DATA: HbTableItem[] = [
 ];
 
 /**
- * Data source for the HbTable view. This class should
+ * Data source for the History view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class HbTableDataSource extends DataSource<HbTableItem> {
-  data: HbTableItem[] = EXAMPLE_DATA;
+export class HistoryDataSource extends DataSource<HistoryItem> {
+  data: HistoryItem[] = EXAMPLE_DATA;
 
   constructor(private paginator: MatPaginator, private sort: MatSort) {
     super();
@@ -50,7 +50,7 @@ export class HbTableDataSource extends DataSource<HbTableItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<HbTableItem[]> {
+  connect(): Observable<HistoryItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -77,7 +77,7 @@ export class HbTableDataSource extends DataSource<HbTableItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: HbTableItem[]) {
+  private getPagedData(data: HistoryItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -86,7 +86,7 @@ export class HbTableDataSource extends DataSource<HbTableItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: HbTableItem[]) {
+  private getSortedData(data: HistoryItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }

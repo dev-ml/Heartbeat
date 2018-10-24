@@ -4,10 +4,10 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="table" routerLinkActive="router-link-active">Table</a>
-      <a mat-list-item href="#">Add</a>
-      <a mat-list-item href="#">Stats</a>
+    <mat-nav-list (click)="drawer.toggle()">
+      <a mat-list-item routerLink="new" routerLinkActive="router-link-active" >Add</a>
+      <a mat-list-item routerLink="history" routerLinkActive="router-link-active">History</a>
+      <a mat-list-item routerLink="stats" routerLinkActive="router-link-active">Stats</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

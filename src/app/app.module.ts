@@ -5,24 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HbNavComponent } from './hb-nav/hb-nav.component';
+import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,
-  MatTableModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+  MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatCardModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HbTableComponent } from './hb-table/hb-table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HistoryComponent } from './history/history.component';
+import { StatsComponent } from './stats/stats.component';
+import { AddEditComponent } from './add-edit/add-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HbNavComponent,
-    HbTableComponent,
-    PageNotFoundComponent
+    NavComponent,
+    PageNotFoundComponent,
+    HistoryComponent,
+    StatsComponent,
+    AddEditComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LayoutModule,
@@ -33,7 +39,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
