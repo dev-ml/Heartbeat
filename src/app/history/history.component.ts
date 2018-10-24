@@ -1,3 +1,4 @@
+import { BloodPressureService } from './../blood-pressure.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { HistoryDataSource } from './history-datasource';
@@ -13,9 +14,11 @@ export class HistoryComponent implements OnInit {
   dataSource: HistoryDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['systolic', 'diastolic', 'pulse'];
+
+  constructor(private bloodPressureService: BloodPressureService) {}
 
   ngOnInit() {
-    this.dataSource = new HistoryDataSource(this.paginator, this.sort);
+    this.dataSource = new HistoryDataSource(this.paginator, this.sort, this.bloodPressureService);
   }
 }

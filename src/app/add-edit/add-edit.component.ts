@@ -1,3 +1,4 @@
+import { BloodPressureService } from './../blood-pressure.service';
 import { Component, OnInit } from '@angular/core';
 import { BloodPressure } from '../blood-pressure';
 
@@ -9,12 +10,13 @@ import { BloodPressure } from '../blood-pressure';
 export class AddEditComponent implements OnInit {
   model = new BloodPressure(120, 80, 70);
 
-  constructor() { }
+  constructor(private bloodPressureService: BloodPressureService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
     console.log(this.model);
+    this.bloodPressureService.add(this.model);
   }
 }

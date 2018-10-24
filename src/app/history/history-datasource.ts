@@ -1,48 +1,26 @@
+import { BloodPressureService } from './../blood-pressure.service';
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge } from 'rxjs';
-
-// TODO: Replace this with your own data model type
-export interface HistoryItem {
-  name: string;
-  id: number;
-}
-
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: HistoryItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
-];
+import { Observable, of as observableOf, merge, Subscription } from 'rxjs';
+import { BloodPressure } from '../blood-pressure';
+import { Injectable } from '@angular/core';
 
 /**
  * Data source for the History view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class HistoryDataSource extends DataSource<HistoryItem> {
-  data: HistoryItem[] = EXAMPLE_DATA;
+export class HistoryDataSource extends DataSource<BloodPressure> {
+  private bloodPressureSubscription: Subscription;
+  private data: BloodPressure[];
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+  constructor(private paginator: MatPaginator, private sort: MatSort, private bloodPressureService: BloodPressureService) {
     super();
+
+    this.bloodPressureSubscription = this.bloodPressureService.getHistory().subscribe((list: BloodPressure[]) => {
+      this.data = list;
+    });
   }
 
   /**
@@ -50,11 +28,11 @@ export class HistoryDataSource extends DataSource<HistoryItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<HistoryItem[]> {
+  connect(): Observable<BloodPressure[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      observableOf(this.data),
+      this.bloodPressureService.getHistory(),
       this.paginator.page,
       this.sort.sortChange
     ];
@@ -71,13 +49,15 @@ export class HistoryDataSource extends DataSource<HistoryItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  disconnect() {
+    this.bloodPressureSubscription.unsubscribe();
+  }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: HistoryItem[]) {
+  private getPagedData(data: BloodPressure[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -86,18 +66,20 @@ export class HistoryDataSource extends DataSource<HistoryItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: HistoryItem[]) {
+  private getSortedData(data: BloodPressure[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
 
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
-      switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        default: return 0;
-      }
+      return compare(a[this.sort.active], b[this.sort.active], isAsc);
+
+      // switch (this.sort.active) {
+      //   case 'name': return compare(a.diastolic, b.diastolic, isAsc);
+      //   case 'id': return compare(+a.id, +b.id, isAsc);
+      //   default: return 0;
+      // }
     });
   }
 }
