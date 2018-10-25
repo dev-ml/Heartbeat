@@ -15,6 +15,7 @@ import { HistoryComponent } from './history/history.component';
 import { StatsComponent } from './stats/stats.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { FormsModule } from '@angular/forms';
+import { ChartistModule } from 'ng-chartist';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ChartistModule,
     FormsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
