@@ -9,10 +9,10 @@
       "urls": [
         "https://dev-ml.github.io/Heartbeat/favicon.ico",
         "https://dev-ml.github.io/Heartbeat/index.html",
-        "https://dev-ml.github.io/Heartbeat/main.5ba8c4c3e6e1cc9b9357.js",
+        "https://dev-ml.github.io/Heartbeat/main.0637d0a8fb2126b19cfe.js",
         "https://dev-ml.github.io/Heartbeat/polyfills.1830021e03d1c0db3030.js",
         "https://dev-ml.github.io/Heartbeat/runtime.ec2944dd8b20ec099bf3.js",
-        "https://dev-ml.github.io/Heartbeat/styles.06085eb967d669975856.css"
+        "https://dev-ml.github.io/Heartbeat/styles.0ee582c895c67972cd64.css"
       ],
       "patterns": []
     },
@@ -44,11 +44,11 @@
     "https://dev-ml.github.io/Heartbeat/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://dev-ml.github.io/Heartbeat/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://dev-ml.github.io/Heartbeat/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dev-ml.github.io/Heartbeat/index.html": "628b48d941bbc8a37bcbb82321e0a8a5d0e3b2ba",
-    "https://dev-ml.github.io/Heartbeat/main.5ba8c4c3e6e1cc9b9357.js": "8646cab4e644d20ba5d1384ee54aa4120ef7820a",
+    "https://dev-ml.github.io/Heartbeat/index.html": "0f20b88dfc789e51c5fc137e03f8611c604c8975",
+    "https://dev-ml.github.io/Heartbeat/main.0637d0a8fb2126b19cfe.js": "ac0ba094fc45913847feb0ab6864a897bdfb8780",
     "https://dev-ml.github.io/Heartbeat/polyfills.1830021e03d1c0db3030.js": "ef2035f0504b4f77eac510c33595c81a5d09e33f",
     "https://dev-ml.github.io/Heartbeat/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "https://dev-ml.github.io/Heartbeat/styles.06085eb967d669975856.css": "679c906e32309e1d91e7d343cfffe93974c02e07"
+    "https://dev-ml.github.io/Heartbeat/styles.0ee582c895c67972cd64.css": "af387f79c6ebffb47c7f1af057b173c343da9a23"
   },
   "navigationUrls": [
     {
