@@ -15,7 +15,7 @@ import { HistoryComponent } from './history/history.component';
 import { StatsComponent } from './stats/stats.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 import { FormsModule } from '@angular/forms';
-import { ChartistModule } from 'ng-chartist';
+import { ChartistComponent } from './chartist.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,12 @@ import { ChartistModule } from 'ng-chartist';
     PageNotFoundComponent,
     HistoryComponent,
     StatsComponent,
-    AddEditComponent
+    AddEditComponent,
+    ChartistComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ChartistModule,
     FormsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
